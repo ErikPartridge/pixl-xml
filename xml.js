@@ -24,7 +24,6 @@
 	This version is for Node.JS, converted in 2012.
 */
 
-var fs = require('fs');
 var util = require('util');
 
 var isArray = Array.isArray || util.isArray; // support for older Node.js
@@ -53,10 +52,7 @@ var XML = exports.XML = exports.Parser = function XML(args, opts) {
 	}
 	
 	if (!this.text.match(/^\s*</)) {
-		// try as file path
-		var file = this.text;
-		this.text = fs.readFileSync(file, { encoding: 'utf8' });
-		if (!this.text) throw new Error("File not found: " + file);
+		throw new Error("Files are not supported with this parser on React Native");
 	}
 	
 	this.tree = {};
