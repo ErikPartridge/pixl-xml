@@ -42,12 +42,7 @@ var XML = exports.XML = exports.Parser = function XML(args, opts) {
 	if (opts) {
 		for (var key in opts) this[key] = opts[key];
 	}
-	
-	// stringify buffers
-	if (this.text instanceof Buffer) {
-		this.text = this.text.toString();
-	}
-	
+		
 	if (!this.text.match(/^\s*</)) {
 		throw new Error("Files are not supported with this parser on React Native");
 	}
@@ -616,3 +611,4 @@ var num_keys = exports.numKeys = function num_keys(hash) {
 	for (var a in hash) count++;
 	return count;
 };
+
